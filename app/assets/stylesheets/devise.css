@@ -2,6 +2,7 @@
   list-style-type: none;
   overflow: hidden;
 }
+
 #login-nav li {
   display: inline-block;
   float: right;
