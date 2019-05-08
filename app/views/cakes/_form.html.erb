@@ -18,6 +18,9 @@
     <%= f.hidden_field :image_cache %>
   </p>
 
+  <label>Show on homepage? </label>
+  <%= f.check_box :show_on_homepage, {}, true, false %>
+
   <% if cake.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cake.errors.count, "error") %> prohibited this cake from being saved:</h2>

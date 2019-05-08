@@ -5,7 +5,7 @@ class CakesController < ApplicationController
   # GET /cakes
   # GET /cakes.json
   def index
-    @cakes = Cake.all
+    @cakes = Cake.where(show_on_homepage: true)
   end
 
   # GET /cakes/1
@@ -71,6 +71,6 @@ class CakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cake_params
-      params.require(:cake).permit(:title, :description, :price, :theme, :image)
+      params.require(:cake).permit(:title, :description, :price, :show_on_homepage, :theme, :image)
     end
 end

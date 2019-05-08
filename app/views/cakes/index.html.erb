@@ -12,6 +12,9 @@
   <tbody>
     <% @cakes.each do |cake| %>
       <tr>
+        <td><%= cake.title %></td>
+        <td><%= number_to_currency(cake.price) %></td>
+        <td><%= image_tag(cake.image_url, size: '100') if cake.image? %></td>
         <td><%= link_to 'Show', cake %></td>
         <td><%= link_to 'Edit', edit_cake_path(cake) %></td>
         <td><%= link_to 'Destroy', cake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +25,8 @@
 
 <br>
 
-<%= link_to 'New Cake', new_cake_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Cake', new_cake_path, method: :get %>
+<% else %>
+  Sign in to add a new cake
+<% end %>

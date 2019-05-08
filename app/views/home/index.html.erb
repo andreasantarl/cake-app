@@ -1,3 +1,7 @@
 <h1>Cake Blog</h1>
 
-<%= link_to 'Add new cake', cakes_path, method: :get %>
+<% if user_signed_in? %>
+  <%= link_to 'New Cake', new_cake_path, method: :get %>
+<% else %>
+  Sign in to add a new cake
+<% end %>
