@@ -16,9 +16,10 @@ ActiveRecord::Schema.define(version: 2019_05_08_020633) do
   enable_extension "plpgsql"
 
   create_table "cakes", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
-    t.decimal "price"
+    t.integer "price_cents"
+    t.string "price_currency", default: "USD", null: false
     t.string "theme"
     t.bigint "user_id"
     t.datetime "created_at", null: false
