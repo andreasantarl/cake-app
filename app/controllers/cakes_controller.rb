@@ -71,6 +71,6 @@ class CakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cake_params
-      params.require(:cake).permit(:title, :description, :price, :theme)
+      params.require(:cake).permit(:title, :description, :price, :theme, :image)
     end
 end
