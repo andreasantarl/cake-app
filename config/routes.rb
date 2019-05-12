@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   end
   root to: 'cakes#index'
 
-  get 'price_list', to: 'pages#pricing'
+  get 'pricing', to: 'pages#pricing'
+  get 'about', to: 'pages#about'
+
 end

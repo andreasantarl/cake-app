@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
 
   def pricing
-    render 'price_list'
+    render 'pricing'
+  end
+
+  def about
+    render 'about'
   end
 
 end
