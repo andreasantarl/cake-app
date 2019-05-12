@@ -1,8 +1,0 @@
-<h1>Cake Blog</h1>
-
-<%= render 'cakes/index' %>
-<% if user_signed_in? %>
-  <%= link_to 'New Cake', new_cake_path, method: :get %>
-<% else %>
-  Sign in to add a new cake
-<% end %>
