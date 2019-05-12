@@ -13,7 +13,7 @@
   <%= collection_select :cake, :theme, Theme.all, :id, :name, include_blank: true %>
 
   <p>
-    <label>My Avatar</label>
+    <label>Cake Image</label>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   </p>

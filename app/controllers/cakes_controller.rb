@@ -5,7 +5,7 @@ class CakesController < ApplicationController
   # GET /cakes
   # GET /cakes.json
   def index
-    @cakes = Cake.where(show_on_homepage: true)
+    @cakes = Cake.where(show_on_homepage: true).order(:position)
   end
 
   # GET /cakes/1
