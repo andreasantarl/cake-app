@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+user = User.create([{ email: 'andrea.santarl@gmail.com', password: '123123'}])
+
+
+for i in 1..5 do
+  cake = Cake.create([{ title: "Cake #{i}", description: "Description #{i}", \
+    price_cents: ((i * 2000)/ 3) , theme: 'wedding', user_id: 1, show_on_homepage: true}])
+end

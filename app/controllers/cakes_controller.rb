@@ -11,6 +11,8 @@ class CakesController < ApplicationController
   # GET /cakes/1
   # GET /cakes/1.json
   def show
+    @cake = Cake.find(params[:id])
+    @related_cakes = Cake.where(theme: @cake[:theme]).order("RANDOM()").limit(3)
   end
 
   # GET /cakes/new
