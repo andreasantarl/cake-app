@@ -1,1 +1,5 @@
-<%= render 'list_cakes', cakes: @cakes %>
+<% unless @cakes.empty? %>
+  <%= render 'list_cakes', cakes: @cakes %>
+<% else %>
+  <div>There are no search results. Please initiate a new search.</div>
+<% end %>

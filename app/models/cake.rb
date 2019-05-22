@@ -1,5 +1,5 @@
 class Cake < ApplicationRecord
-  searchkick
+  searchkick word_middle: [:title]
   validates :title, presence: true
 
   monetize :price_cents, as: 'price', allow_nil: true
@@ -13,11 +13,11 @@ class Cake < ApplicationRecord
 
   private
 
-  def search_data
-    {
-      title: title
-    }
-  end
-
+  # def search_data
+  #   {
+  #     title: title
+  #   }
+  # end
+  #
 
 end

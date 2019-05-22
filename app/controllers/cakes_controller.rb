@@ -24,7 +24,7 @@ class CakesController < ApplicationController
 
   # GET /cakes/search
   def search
-    @cakes = Cake.search(params[:q])
+    @cakes = Cake.search(params[:q], fields: [:title], match: :word_middle)
   end
 
   # GET /cakes/1/edit
