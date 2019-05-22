@@ -6,13 +6,5 @@
 
 <% unless @related_cakes.empty? %>
 <div>Related Cakes:</div>
-<div>
-  <ul>
-  <% @related_cakes.each do |related| %>
-    <li>
-      <%= related.title %><%= link_to 'Check it out', related %>
-    </li>
-  <% end %>
-  </ul>
-</div>
+  <%= render 'list_cakes', cakes: @related_cakes %>
 <% end %>
