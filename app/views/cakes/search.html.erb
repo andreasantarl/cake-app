@@ -1,0 +1,9 @@
+<div>
+  <ul>
+  <% @cakes.each do |cake| %>
+    <li>
+      <%= cake.title %><%= link_to 'Check it out', cake %>
+    </li>
+  <% end %>
+  </ul>
+</div>

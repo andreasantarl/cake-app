@@ -1,0 +1,4 @@
+<%= form_with method: :get, url: search_cakes_url, local: true do |f| %>
+  <%= f.text_field :q, placeholder: "Search" %>
+  <%= f.submit 'Submit' %>
+<% end %>

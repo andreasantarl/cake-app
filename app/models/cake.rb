@@ -1,4 +1,5 @@
 class Cake < ApplicationRecord
+  searchkick
   validates :title, presence: true
 
   monetize :price_cents, as: 'price', allow_nil: true
@@ -8,6 +9,15 @@ class Cake < ApplicationRecord
   # accepts_nested_attributes_for :user
 
   attr_accessor :image_cache
+
+
+  private
+
+  def search_data
+    {
+      title: title
+    }
+  end
 
 
 end

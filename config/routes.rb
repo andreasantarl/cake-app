@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :cakes
+  resources :cakes do
+    collection do
+      get 'search'
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :users, skip: [:sessions]
@@ -12,6 +17,7 @@ Rails.application.routes.draw do
 
   root to: 'cakes#index'
 
+  # match 'cakes/search', to: 'cakes#search', via: [:post, :get], as: :search
   get 'pricing', to: 'pages#pricing'
   get 'about', to: 'pages#about'
 

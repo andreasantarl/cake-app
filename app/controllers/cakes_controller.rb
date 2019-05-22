@@ -1,5 +1,6 @@
 class CakesController < ApplicationController
-  before_action :set_cake, only: [:show, :edit, :update, :destroy]
+  # before_action :set_cake, only: [:show, :edit, :update, :destroy]
+  before_action :set_cake, except: [:index, :search, :create]
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   protect_from_forgery prepend: true
   # GET /cakes
@@ -19,6 +20,11 @@ class CakesController < ApplicationController
   def new
     @cake = Cake.new
     @user = @cake.build_user
+  end
+
+  # GET /cakes/search
+  def search
+    @cakes = Cake.search(params[:q])
   end
 
   # GET /cakes/1/edit
@@ -71,8 +77,9 @@ class CakesController < ApplicationController
       @cake = Cake.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def cake_params
-      params.require(:cake).permit(:title, :description, :price, :show_on_homepage, :theme, :image)
+      params.require(:cake).permit(:q, :title, :description, :price, :show_on_homepage, :theme, :image)
     end
 end
