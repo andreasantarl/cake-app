@@ -7,4 +7,5 @@ module SearchHelper
       'cakes/search/no_search_results'
     end
   end
+
 end

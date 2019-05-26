@@ -12,10 +12,7 @@
         <td><%= number_to_currency(cake.price) %></td>
         <td><%= image_tag(cake.image_url, size: '100') if cake.image? %></td>
         <td><%= link_to 'More info', cake %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_cake_path(cake) %></td>
-          <td><%= link_to 'Destroy', cake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <%= manage_cake_abilities(cake) %>
       </tr>
     <% end %>
   </tbody>
