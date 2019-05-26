@@ -6,7 +6,7 @@
 
 ## Setup
 
-*   rvm create gemset cake-app
+*   rvm gemset create cake-app
 *   bundle install
 *   rails s
 
