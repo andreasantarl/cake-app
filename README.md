@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby version
 
-Things you may want to cover:
+*   2.6.3
 
-* Ruby version
+## Setup
 
-* System dependencies
+*   rvm create gemset cake-app
+*   bundle install
+*   rails s
 
-* Configuration
+## System dependencies
 
-* Database creation
+*   rvm
 
-* Database initialization
+## Configuration
 
-* How to run the test suite
+## Database creation
 
-* Services (job queues, cache servers, search engines, etc.)
+*   rake db:create
+*   rake db:migrate db:seed
 
-* Deployment instructions
+## How to run the test suite
 
-* ...
+*   rspec spec/models
