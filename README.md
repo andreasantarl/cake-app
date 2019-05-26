@@ -23,4 +23,4 @@
 
 ## How to run the test suite
 
-*   rspec spec/models
+*   bin/rake test test/models/filename
