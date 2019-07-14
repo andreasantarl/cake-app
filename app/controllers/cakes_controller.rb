@@ -1,6 +1,6 @@
 class CakesController < ApplicationController
   # before_action :set_cake, only: [:show, :edit, :update, :destroy]
-  before_action :set_cake, except: [:index, :search, :create]
+  before_action :set_cake, except: [:new, :index, :search, :create]
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   protect_from_forgery prepend: true
   # GET /cakes

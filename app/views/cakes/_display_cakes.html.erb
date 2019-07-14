@@ -12,7 +12,6 @@
         <td><%= number_to_currency(cake.price) %></td>
         <td><%= image_tag(cake.image_url, size: '100') if cake.image? %></td>
         <td><%= link_to 'More info', cake %></td>
-        <%= manage_cake_abilities(cake) %>
       </tr>
     <% end %>
   </tbody>
