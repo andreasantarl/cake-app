@@ -1,4 +1,6 @@
 class Cake < ApplicationRecord
+  resourcify
+  
   searchkick word_middle: [:title]
   validates :title, presence: true
 
