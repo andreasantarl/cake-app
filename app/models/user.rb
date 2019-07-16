@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cakes
+  has_many :comments, dependent: :destroy
 
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
