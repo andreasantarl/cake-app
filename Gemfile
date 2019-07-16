@@ -40,6 +40,8 @@ gem 'money-rails'
 gem 'active_hash'
 gem 'carrierwave', '~> 1.0'
 gem 'searchkick'
+gem 'cancancan'
+gem 'rolify'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
