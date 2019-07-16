@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_010215) do
+ActiveRecord::Schema.define(version: 2019_07_16_231632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,11 @@ ActiveRecord::Schema.define(version: 2019_07_16_010215) do
     t.integer "price_cents"
     t.string "price_currency", default: "USD", null: false
     t.string "theme"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
     t.boolean "show_on_homepage", default: false
     t.integer "position"
-    t.index ["user_id"], name: "index_cakes_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -35,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_010215) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cake_id"
+    t.index ["cake_id"], name: "index_comments_on_cake_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -72,5 +72,6 @@ ActiveRecord::Schema.define(version: 2019_07_16_010215) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "cakes", "users"
+  add_foreign_key "comments", "cakes"
+  add_foreign_key "comments", "users"
 end

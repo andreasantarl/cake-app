@@ -9,6 +9,8 @@
   <%= render 'list_cakes', cakes: @related_cakes %>
 <% end %>
 
+<%#= render 'comments/form', comment: @comment %>
+
 <% if can? :manage, @cake %>
  <%= render('cakes/edit_destroy_cakes', cake: @cake) %>
 <% end %>

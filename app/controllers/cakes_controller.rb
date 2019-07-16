@@ -19,7 +19,6 @@ class CakesController < ApplicationController
   # GET /cakes/new
   def new
     @cake = Cake.new
-    @user = @cake.build_user
   end
 
   # GET /cakes/search
@@ -34,7 +33,7 @@ class CakesController < ApplicationController
   # POST /cakes
   # POST /cakes.json
   def create
-    @cake = Cake.new(cake_params.merge(user_id: current_user.id))
+    @cake = Cake.new(cake_params)
 
     respond_to do |format|
       if @cake.save
@@ -77,9 +76,8 @@ class CakesController < ApplicationController
       @cake = Cake.find(params[:id])
     end
 
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def cake_params
-      params.require(:cake).permit(:q, :title, :description, :price, :show_on_homepage, :theme, :image)
+      params.require(:cake).permit(:q, :title, :description, :price, :show_on_homepage, :theme, :image, :image_cache)
     end
 end
