@@ -10,5 +10,5 @@
 <% end %>
 
 <% if can? :manage, @cake %>
- <%= render('cakes/manage_cakes/edit_destroy_cakes', cake: @cake) %>
+ <%= render('cakes/edit_destroy_cakes', cake: @cake) %>
 <% end %>
