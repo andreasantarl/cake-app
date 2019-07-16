@@ -18,12 +18,6 @@ class CakeTest < ActiveSupport::TestCase
     assert_not_nil @cake.errors[:price_currency], 'No validation error for price present'
   end
 
-  test 'cake must have a user id associated with it' do
-    @cake.user_id = 1
-    refute @cake.valid?, 'cake is saved without a user id'
-    assert_not_nil @cake.errors[:user_id], 'No validation error for user id present'
-  end
-
   test 'cake title cannot be empty' do
     @cake.title = nil
     refute @cake.valid?, 'Cake was not saved without a title'

@@ -3,7 +3,7 @@ require 'test_helper'
 class CommentTest < ActiveSupport::TestCase
 
   def setup
-    @comment = Comment.new(comment: "This is a comment", user_id: 1)
+    @comment = Comment.new(comment: "This is a comment", user_id: 1, cake_id: 1)
   end
 
   test "Comment must have a user associated" do
@@ -12,6 +12,10 @@ class CommentTest < ActiveSupport::TestCase
 
   test "Comment should not be empty" do
     assert @comment.comment != nil, "Expected comment not to be nil"
+  end
+
+  test "Comment must have a cake associated with it" do
+    assert @comment.cake_id != nil, "Expected cake_id to exist"
   end
   # test "the truth" do
   #   assert true
