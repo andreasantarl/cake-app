@@ -4,4 +4,5 @@ class Comment < ApplicationRecord
 
   validates :comment, presence: true, allow_blank: false
   validates :user_id, presence: true
+  validates :cake_id, presence: true
 end

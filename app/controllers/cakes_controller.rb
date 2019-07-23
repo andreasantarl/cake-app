@@ -14,11 +14,14 @@ class CakesController < ApplicationController
   def show
     @cake = Cake.find(params[:id])
     @related_cakes = Cake.where(theme: @cake[:theme]).where.not(id: params[:id]).order("RANDOM()").limit(3)
+    @comments = @cake.comments.all
+    @comment = @cake.comments.new
   end
 
   # GET /cakes/new
   def new
     @cake = Cake.new
+    @comment = Comment.new
   end
 
   # GET /cakes/search
@@ -64,6 +67,7 @@ class CakesController < ApplicationController
   # DELETE /cakes/1.json
   def destroy
     @cake.destroy
+
     respond_to do |format|
       format.html { redirect_to cakes_url, notice: 'Cake was successfully destroyed.' }
       format.json { head :no_content }

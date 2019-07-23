@@ -1,0 +1,12 @@
+<ul>
+<% @cake.comments.each do |comment| %>
+  <% if comment.id %>
+    <li>
+    <%= comment.user.email %> says:
+    <br />
+
+    "<%= comment[:comment] %>"
+    </li>
+  <% end %>
+<% end %>
+</ul>
