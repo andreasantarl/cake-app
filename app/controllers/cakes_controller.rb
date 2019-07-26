@@ -1,5 +1,6 @@
 class CakesController < ApplicationController
-  before_action :set_cake, only: [:update, :destroy]
+  before_action :set_cake, only: [:show, :edit, :update, :destroy]
+  # before_action :set_cake
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   protect_from_forgery prepend: true
   # GET /cakes
@@ -42,6 +43,9 @@ class CakesController < ApplicationController
         format.json { render json: @cake.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
   end
 
   # PATCH/PUT /cakes/1
