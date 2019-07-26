@@ -10,7 +10,10 @@
 
 <h2>Comments</h2>
 <%= render 'cakes/display_comments', comments: @comments %>
+
+<% if user_signed_in? %>
 <%= render 'comments/form', comment: @comment %>
+<% end %>
 
 <% unless @related_cakes.empty? %>
 <div>Related Cakes:</div>
