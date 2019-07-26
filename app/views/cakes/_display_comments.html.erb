@@ -6,6 +6,9 @@
     <br />
 
     "<%= comment[:comment] %>"
+
+    <%= link_to 'Destroy', cake_comment_path(@cake, comment), method: :delete, data: {  confirm: 'Are you sure?' } %>
+
     </li>
   <% end %>
 <% end %>

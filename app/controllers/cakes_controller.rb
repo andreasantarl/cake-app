@@ -1,6 +1,5 @@
 class CakesController < ApplicationController
-  # before_action :set_cake, only: [:show, :edit, :update, :destroy]
-  before_action :set_cake, except: [:new, :index, :search, :create]
+  before_action :set_cake, only: [:update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   protect_from_forgery prepend: true
   # GET /cakes
@@ -27,10 +26,6 @@ class CakesController < ApplicationController
   # GET /cakes/search
   def search
     @cakes = Cake.search(params[:q], fields: [:title], match: :word_middle)
-  end
-
-  # GET /cakes/1/edit
-  def edit
   end
 
   # POST /cakes

@@ -1,17 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :destroy]
-
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-  end
-
-  # GET /comments/new
-  # def new
-  #   @comment = Comment.new
-  #   @user = current_user
-  #   @cake = Cake.find_by_id(comment_params[:cake_id])
-  # end
+  before_action :set_comment, only: [:destroy]
+  before_action :set_cake, only: [:destroy]
 
   # POST /comments
   # POST /comments.json
@@ -35,7 +24,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @cake, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -44,6 +33,10 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def set_cake
+      @cake = Cake.find(params[:cake_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
