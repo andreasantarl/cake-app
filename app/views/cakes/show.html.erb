@@ -9,7 +9,11 @@
 <% end %>
 
 <h2>Comments</h2>
-<%= render 'cakes/display_comments', comments: @comments %>
+  <% if @comments.any? %>
+  <%= render 'cakes/display_comments', comments: @comments %>
+  <% else %>
+    <div>Be the first to comment!</div>
+  <% end %>
 
 <% if user_signed_in? %>
 <%= render 'comments/form', comment: @comment %>
