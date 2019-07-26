@@ -4,14 +4,15 @@
 <div>Description: <%= @cake.description %></div>
 <div>Theme: <%= @cake.theme %></div>
 
-<% unless @related_cakes.empty? %>
-<div>Related Cakes:</div>
-  <%= render 'list_cakes', cakes: @related_cakes %>
+<% if can? :manage, @cake %>
+ <%= render('cakes/edit_destroy_cakes', cake: @cake) %>
 <% end %>
 
+<h2>Comments</h2>
 <%= render 'cakes/display_comments', comments: @comments %>
 <%= render 'comments/form', comment: @comment %>
 
-<% if can? :manage, @cake %>
- <%= render('cakes/edit_destroy_cakes', cake: @cake) %>
+<% unless @related_cakes.empty? %>
+<div>Related Cakes:</div>
+  <%= render 'list_cakes', cakes: @related_cakes %>
 <% end %>

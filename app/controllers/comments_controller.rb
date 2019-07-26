@@ -7,22 +7,21 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/new
-  def new
-    @comment = Comment.new
-    @user = current_user
-    @cake = Cake.find_by_id(comment_params[:cake_id])
-  end
+  # def new
+  #   @comment = Comment.new
+  #   @user = current_user
+  #   @cake = Cake.find_by_id(comment_params[:cake_id])
+  # end
 
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
+    @comment = current_user.comments.build(comment_params)
     @cake = Cake.find_by_id(comment_params[:cake_id])
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @cake, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @cake }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
