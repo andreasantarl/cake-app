@@ -2,7 +2,7 @@ class CakesController < ApplicationController
   before_action :set_cake, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   protect_from_forgery prepend: true
-  
+
   # GET /cakes
   # GET /cakes.json
   def index
@@ -36,7 +36,7 @@ class CakesController < ApplicationController
 
     respond_to do |format|
       if @cake.save
-        format.html { redirect_to @cake, notice: 'Cake was successfully created.' }
+        format.html { redirect_to @cake }
         format.json { render :show, status: :created, location: @cake }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class CakesController < ApplicationController
   def update
     respond_to do |format|
       if @cake.update(cake_params)
-        format.html { redirect_to @cake, notice: 'Cake was successfully updated.' }
+        format.html { redirect_to @cake, notice: 'Updated!' }
         format.json { render :show, status: :ok, location: @cake }
       else
         format.html { render :edit }
